@@ -1,0 +1,48 @@
+name: Build Cordova APK
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Cordova
+      run: npm install -g cordova
+
+    - name: Create Cordova project
+      run: |
+        cordova create posApp com.byZcode.pos POSApp
+        cd posApp
+        cordova platform add android
+        # Plugins necesarios
+        cordova plugin add cordova-sqlite-storage
+        cordova plugin add cordova-plugin-file
+        cordova plugin add cordova-plugin-pdf-generator
+        cordova plugin add cordova-plugin-social-sharing
+        cordova plugin add cordova-plugin-file-opener2
+        # Copiar tus archivos al proyecto Cordova
+        cp -r ../index.html www/
+        cp -r ../css www/css
+        cp -r ../js www/js
+
+    - name: Build APK
+      run: |
+        cd posApp
+        cordova build android
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: POSApp-APK
+        path: posApp/platforms/android/app/build/outputs/apk/debug/*.apk
