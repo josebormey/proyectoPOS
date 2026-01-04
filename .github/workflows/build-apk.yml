@@ -29,7 +29,7 @@ jobs:
         cordova plugin add cordova-sqlite-storage
         cordova plugin add cordova-plugin-file
         cordova plugin add cordova-plugin-pdf-generator
-        cordova plugin add cordova-plugin-social-sharing
+        cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
         cordova plugin add cordova-plugin-file-opener2
         # Copiar tus archivos al proyecto Cordova
         cp -r ../index.html www/
