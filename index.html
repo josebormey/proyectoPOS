@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>POS Offline</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="home">
+    <div data-role="header"><h1>POS Offline</h1></div>
+    <div data-role="content">
+      <a href="#login" data-role="button">Iniciar Sesión</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="login">
+    <div data-role="header"><h1>Login</h1></div>
+    <div data-role="content">
+      <form>
+        <label for="user">Usuario:</label>
+        <input type="text" id="user">
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass">
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
