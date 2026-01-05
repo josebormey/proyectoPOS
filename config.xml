@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.byZcode.pos" version="1.0.0"
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+    <name>POSApp</name>
+    <description>
+        Sistema de gestión de punto de venta
+    </description>
+    <author email="tuemail@ejemplo.com" href="https://byzcode.com">
+        Jose - ByZcode
+    </author>
+
+    <!-- Página inicial -->
+    <content src="index.html" />
+
+    <!-- Preferencias básicas -->
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+    <preference name="Orientation" value="portrait" />
+
+    <!-- Plugins -->
+    <plugin name="cordova-sqlite-storage" />
+    <plugin name="cordova-plugin-file" />
+    <plugin name="cordova-plugin-pdf-generator" />
+    <plugin name="cordova-plugin-file-opener2" />
+    <plugin name="cordova-plugin-whitelist" />
+
+    <!-- Acceso permitido -->
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+</widget>
