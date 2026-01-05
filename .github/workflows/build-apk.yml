@@ -31,10 +31,9 @@ jobs:
         cordova plugin add cordova-plugin-pdf-generator
         cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
         cordova plugin add cordova-plugin-file-opener2
-        # Copiar tus archivos al proyecto Cordova
-        cp -r ../index.html www/
-        cp -r ../css www/css
-        cp -r ../js www/js
+        # Copiar tu carpeta www completa al proyecto Cordova
+        rm -rf www
+        cp -r ../www ./www
 
     - name: Build APK
       run: |
