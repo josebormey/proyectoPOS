@@ -20,24 +20,18 @@ jobs:
     - name: Install Cordova
       run: npm install -g cordova
 
-    - name: Create Cordova project
+    - name: Create Cordova project and build APK
       run: |
         cordova create posApp com.byZcode.pos POSApp
         cd posApp
         cordova platform add android
-        # Plugins necesarios
         cordova plugin add cordova-sqlite-storage
         cordova plugin add cordova-plugin-file
         cordova plugin add cordova-plugin-pdf-generator
         cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
         cordova plugin add cordova-plugin-file-opener2
-        # Copiar tu carpeta www completa al proyecto Cordova
         rm -rf www
         cp -r ../www ./www
-
-    - name: Build APK
-      run: |
-        cd posApp
         cordova build android
 
     - name: Upload APK
