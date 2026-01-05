@@ -17,17 +17,25 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install Cordova
+    - name: Install Cordova CLI
       run: npm install -g cordova
 
-    - name: Add Android platform and plugins
+    - name: Prepare Cordova project
       run: |
+        # Eliminar plataforma Android si ya existe
+        cordova platform rm android || true
+        # Agregar plataforma Android limpia
         cordova platform add android
+        # Eliminar plugin obsoleto si quedó instalado
+        cordova plugin rm cordova-plugin-whitelist || true
+        # Instalar plugins necesarios
         cordova plugin add cordova-sqlite-storage
         cordova plugin add cordova-plugin-file
         cordova plugin add cordova-plugin-pdf-generator
         cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
         cordova plugin add cordova-plugin-file-opener2
+        # Limpiar build previo
+        cordova clean android
 
     - name: Build APK
       run: cordova build android
