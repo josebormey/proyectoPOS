@@ -30,6 +30,8 @@ jobs:
         cordova plugin add cordova-plugin-pdf-generator
         cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
         cordova plugin add cordova-plugin-file-opener2
+        # Asegurarse de no copiar config.xml desde www
+        rm -f ../www/config.xml
         rm -rf www
         cp -r ../www ./www
         cordova build android
